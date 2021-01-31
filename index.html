@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Servicio Técnico</title>
+        <link rel="stylesheet" href="./public/style.css" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+            rel="stylesheet"
+        />
+        <script
+            src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"
+            type="text/javascript"
+        ></script>
+    </head>
+    <body>
+        <main>
+            <div class="phone-parts">
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/1.png"
+                    alt=""
+                    class="part-1"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/2.png"
+                    alt=""
+                    class="part-2"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/3.png"
+                    alt=""
+                    class="part-3"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/4.png"
+                    alt=""
+                    class="part-4"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/5.png"
+                    alt=""
+                    class="part-5"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/6.png"
+                    alt=""
+                    class="part-6"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/7.png"
+                    alt=""
+                    class="part-7"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/8.png"
+                    alt=""
+                    class="part-8"
+                />
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/9.png"
+                    alt=""
+                    class="part-9"
+                />
+            </div>
+            <form id="main-form">
+                <h1>Servicio Técnico</h1>
+
+                <div class="section-cart" id="problems">
+                    <div class="title-box">
+                        <h2>¿Qué le pasó al teléfono?</h2>
+                        <div class="line-box">
+                            <img
+                                src="https://911smartphones.com/wp-content/uploads/2020/12/linea.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <ul class="cart-options" id="problems-list">
+                        <li class="cart-options-item" id="mojado">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/mojado.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Mojado</h3>
+                            <input
+                                type="radio"
+                                name="problem"
+                                id="mojado-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="pin-carga">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/pin-de-carga.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Pin de carga</h3>
+                            <input type="radio" name="problem" id="pin-radio" />
+                        </li>
+                        <li class="cart-options-item" id="bateria">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/bateria.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Batería</h3>
+                            <input
+                                type="radio"
+                                name="problem"
+                                id="bateria-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="pantalla-rota">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/pantalla-rota.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Pantalla rota</h3>
+                            <input
+                                type="radio"
+                                name="problem"
+                                id="pantalla-radio"
+                            />
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="section-cart" id="brand">
+                    <div class="title-box">
+                        <h2>¿Qué marca es el teléfono?</h2>
+                        <div class="line-box">
+                            <img
+                                src="https://911smartphones.com/wp-content/uploads/2020/12/linea.png"
+                                alt=""
+                            />
+                        </div>
+                    </div>
+                    <ul class="cart-options" id="brand-list">
+                        <li class="cart-options-item" id="apple">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/APPLE.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Apple</h3>
+                            <input type="radio" name="brand" id="apple-radio" />
+                        </li>
+                        <li class="cart-options-item" id="samsung">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/SAMSUNG.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Samsung</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="samsung-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="xiaomi">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/XIAOMI.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Xiaomi</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="xiaomi-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="huawei">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/HUAWEI.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Huawei</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="huawei-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="sony">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/SONY.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>Sony</h3>
+                            <input type="radio" name="brand" id="sony-radio" />
+                        </li>
+                        <li class="cart-options-item" id="tlc">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/TCL.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>TLC</h3>
+                            <input type="radio" name="brand" id="tlc-radio" />
+                        </li>
+                        <li class="cart-options-item" id="blu">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/BLU.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>BLU</h3>
+                            <input type="radio" name="brand" id="blu-radio" />
+                        </li>
+                        <li class="cart-options-item" id="siragon">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/SIRAGON.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>SÍRAGON</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="siragon-radio"
+                            />
+                        </li>
+
+                        <li class="cart-options-item" id="lg">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/LG.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>LG</h3>
+                            <input type="radio" name="brand" id="lg-radio" />
+                        </li>
+                        <li class="cart-options-item" id="krip">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/KRIP.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>KRIP</h3>
+                            <input type="radio" name="brand" id="krip-radio" />
+                        </li>
+
+                        <li class="cart-options-item" id="motorola">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/MOTOROLA.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>MOTOROLA</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="motorola-radio"
+                            />
+                        </li>
+                        <li class="cart-options-item" id="alcatel">
+                            <div class="options-item-img">
+                                <img
+                                    src="https://911smartphones.com/wp-content/uploads/2020/12/ALCATEL.png"
+                                    alt=""
+                                />
+                            </div>
+                            <h3>ALCATEL</h3>
+                            <input
+                                type="radio"
+                                name="brand"
+                                id="alcatel-radio"
+                            />
+                        </li>
+                    </ul>
+                    <input
+                        type="text"
+                        placeholder="Otro"
+                        class="brand-input"
+                        id="other-brand"
+                    />
+                </div>
+
+                <div class="section-cart" id="model">
+                    <div class="title-box">
+                        <h2>¿Qué modelo es el teléfono?</h2>
+                        <div class="line-box">
+                            <img
+                                src="https://911smartphones.com/wp-content/uploads/2020/12/linea.png"
+                                alt=""
+                            />
+                        </div>
+                        <div>
+                            <select
+                                name=""
+                                id="phone-model"
+                                disabled="true"
+                                required
+                            ></select>
+                            <br /><br />
+                            <select
+                                name=""
+                                id="guarantee-type"
+                                disabled="true"
+                                required
+                            >
+                                <option value="">
+                                    Seleccione un tipo de Garantia
+                                </option>
+                                <option value="B">B</option>
+                                <option value="AAA">AAA</option>
+                            </select>
+                            <br /><br /><br />
+                            <input
+                                type="button"
+                                value="Cotizar"
+                                class="btn-cotizar"
+                                id="cotizar-btn"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-cart" id="price">
+                    <div class="title-box">
+                        <h2>Cotización</h2>
+                        <div class="line-box">
+                            <img
+                                src="https://911smartphones.com/wp-content/uploads/2020/12/linea.png"
+                                alt=""
+                            />
+                        </div>
+                        <div>
+                            <h3 id="price-text">$0.00</h3>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <form class="popup-container" id="mail-popup">
+                <div class="exit-popup-container">
+                    <input type="checkbox" name="" id="exit-popup-check" />
+                    <h1>X</h1>
+                </div>
+                <img
+                    src="https://911smartphones.com/wp-content/uploads/2020/12/FONDO-POP-UP.png"
+                    alt=""
+                    class="popup-bg"
+                />
+                <div class="popup-inner-container">
+                    <div class="popup-inner-card">
+                        <p>
+                            Necesitamos un poco más de información para salvar
+                            tu dispositivo.
+                        </p>
+                        <br />
+                        <p>
+                            Ingresa tus datos y nos pondremos en contacto
+                            contigo para resolverlo.
+                        </p>
+                    </div>
+                    <div class="popup-inner-card">
+                        <h3>Datos de Contacto</h3>
+                        <input
+                            type="text"
+                            name="nombre"
+                            id="client-name"
+                            placeholder="Nombre"
+                        />
+                        <input
+                            type="text"
+                            name="numero"
+                            id="client-number"
+                            placeholder="Número de teléfono"
+                        />
+                        <input
+                            type="email"
+                            name="correo"
+                            id="client-mail"
+                            placeholder="Correo"
+                        />
+                        <textarea
+                            name="mensaje"
+                            id="client-msg"
+                            placeholder="Cuéntanos qué sucede"
+                            rows="100"
+                            maxlength="200"
+                        ></textarea>
+                        <div class="btn-container">
+                            <input
+                                type="submit"
+                                value="Enviar"
+                                id="send-mail-btn"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </main>
+        <script src="./public/index.js"></script>
+    </body>
+</html>

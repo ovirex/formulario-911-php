@@ -1,0 +1,340 @@
+:root {
+    --main-color: #12437d;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    color: var(--main-color);
+}
+
+body {
+    overflow-x: hidden;
+    display: none;
+}
+
+.phone-parts > img {
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+main {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    margin-bottom: 100px;
+}
+
+.phone-parts {
+    width: 50%;
+}
+
+form {
+    width: 50%;
+}
+
+.section-cart {
+    width: 100%;
+    margin: 45px 0 0 0;
+}
+
+.line-box {
+    width: 54%;
+    margin: -12px 0 0 0;
+}
+
+.cart-options {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.cart-options-item {
+    border-radius: 20px;
+    width: 128px;
+    padding: 25px 0 5px 0px;
+}
+
+.cart-options-item:hover {
+    border: 3px solid var(--main-color);
+    cursor: pointer;
+}
+
+.options-item-img {
+    width: 70%;
+    margin: 0 auto;
+}
+
+/**********ELIMINAR EN CASO DE QUITAR LA ETIQUEA <a>****************************/
+.cart-options-item > a > h3 {
+    text-align: center;
+}
+/***************************************************************/
+
+.cart-options-item > h3 {
+    text-align: center;
+}
+
+#brand > .cart-options > .cart-options-item {
+    margin: 10px 5px 10px 5px;
+}
+#brand > .cart-options {
+    margin: 0 5px 0 5px;
+    justify-content: flex-start;
+}
+
+#brand > .title-box > .line-box {
+    width: 59%;
+}
+
+.brand-input {
+    border-radius: 5px;
+    border: 1px solid var(--main-color);
+    height: 35px;
+    padding: 0 0 0 10px;
+    margin: 30px 0 0 0;
+}
+
+.brand-input:focus {
+    outline: none;
+    border: 3px solid var(--main-color);
+}
+
+.brand-input::placeholder {
+    color: var(--main-color);
+}
+
+.brand-input:disabled {
+    border-color: rgba(118, 118, 118, 0.3);
+}
+.brand-input:disabled::placeholder {
+    color: grey;
+    opacity: 0.5;
+}
+
+#model > .title-box > .line-box {
+    width: 61%;
+}
+
+#phone-model,
+#guarantee-type {
+    width: 58%;
+    border-radius: 5px;
+    height: 35px;
+}
+
+.btn-cotizar {
+    color: #ffffff;
+    background-color: var(--main-color);
+    padding: 5px 25px 5px 25px;
+    border-radius: 6px;
+    border: none;
+}
+
+#price > .title-box > .line-box {
+    width: 45%;
+}
+
+#price-text {
+    font-size: 2rem;
+}
+
+input[type="radio"] {
+    /* visibility: hidden; */
+    display: none;
+}
+
+.popup-container {
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+
+    height: 500px;
+    display: none;
+    max-width: 660px;
+    min-width: 290px;
+    /* background-image: url("./assets/FONDO\ -\ POP\ UP.png");
+    background-size: cover;
+    background-repeat: no-repeat; */
+}
+
+.popup-container::before {
+    content: "";
+    width: 200vw;
+    height: 200vh;
+    background-color: rgba(1, 1, 1, 0.6);
+    z-index: -1;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.popup-inner-container {
+    position: absolute;
+    display: flex;
+    justify-content: space-evenly;
+    top: 0;
+    left: 35px;
+    width: 90%;
+    height: 100%;
+    align-items: center;
+}
+
+.popup-inner-card {
+    width: 50%;
+}
+
+.popup-inner-card > input,
+.popup-inner-card > textarea {
+    width: 100%;
+    border-radius: 8px;
+    border: none;
+    height: 30px;
+    margin: 20px 0 0 0;
+    padding: 0 0 0 10px;
+}
+
+.popup-inner-card > input::placeholder,
+.popup-inner-card > textarea::placeholder {
+    color: var(--main-color);
+    opacity: 0.7;
+}
+
+.popup-inner-card > textarea {
+    resize: none;
+    height: 90px;
+    padding-top: 7px;
+}
+
+.popup-inner-card:first-child {
+    padding: 0 15% 0 0;
+}
+
+.popup-inner-card h3,
+.popup-inner-card p {
+    color: white;
+}
+.popup-inner-card h3 {
+    line-height: 2;
+}
+
+.popup-bg {
+    width: 100%;
+    height: 100%;
+}
+
+.btn-container {
+    text-align: end;
+    margin: 15px 0 0 0;
+}
+
+.btn-container > input {
+    border-radius: 5px;
+    padding: 6px 28px;
+    border: none;
+    font-weight: 900;
+    background-color: rgb(224, 40, 42); /*cambiar color*/
+    color: white;
+    font-size: 1rem;
+}
+
+.exit-popup-container {
+    position: absolute;
+    transform: translate(50%, 50%);
+    right: 8%;
+    top: 2%;
+    height: 40px;
+    width: 40px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.exit-popup-container input {
+    height: 100%;
+    width: 100%;
+    visibility: hidden;
+    z-index: 100;
+}
+
+.exit-popup-container h1 {
+    color: white;
+    text-align: center;
+    font-size: 2.5rem;
+    z-index: 2;
+    width: 100%;
+    line-height: 1;
+}
+
+.exit-popup-container > h1,
+.exit-popup-container > input {
+    position: absolute;
+}
+
+/*TABLET*/
+
+@media screen and (max-width: 769px) {
+    .phone-parts {
+        display: none;
+    }
+
+    #main-form {
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    .cart-options {
+        justify-content: space-evenly;
+    }
+
+    #brand > .cart-options {
+        justify-content: center;
+    }
+
+    main {
+        padding: 0 40px;
+    }
+
+    .popup-inner-container {
+        flex-direction: column;
+        left: 15px;
+    }
+
+    .popup-inner-card {
+        width: 80%;
+    }
+
+    .popup-container {
+        height: 645px;
+    }
+}
+
+/*MOBILE*/
+
+@media screen and (max-width: 430px) {
+    .brand-input {
+        width: 100%;
+    }
+
+    #phone-model,
+    #guarantee-type {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 356px) {
+    main {
+        padding: 0 20px;
+    }
+}
