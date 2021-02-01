@@ -172,10 +172,9 @@ window.addEventListener("load", function () {
 
 /******Recololección de información para envió de correo ******/
 function sendMailToServer() {
-    this.disabled = true;
-    const clientName = document.getElementById("client-name").value;
-    const clientNumber = document.getElementById("client-number").value;
-    const clientMail = document.getElementById("client-mail").value;
+    const clientName = document.getElementById("client-name");
+    const clientNumber = document.getElementById("client-number");
+    const clientMail = document.getElementById("client-mail");
     const clientMsg = document.getElementById("client-msg").value;
 
     const problemsList = document.getElementById("problems-list").children;
@@ -186,39 +185,38 @@ function sendMailToServer() {
                 .innerText;
         }
     }
+
     const brandList = document.getElementById("brand-list").children;
     const otherBrand = document.getElementById("other-brand").value;
-    let selectedBrandList = "";
+    let selectedBrandFromList = "";
     let brandToSend = "";
     for (let i = 0; i < brandList.length; i++) {
         if (brandList[i].getElementsByTagName("input")[0].checked == true) {
-            brandToSend = selectedBrandList = brandList[i].getElementsByTagName(
-                "h3"
-            )[0].innerText;
+            brandToSend = selectedBrandFromList = brandList[
+                i
+            ].getElementsByTagName("h3")[0].innerText;
         }
     }
 
-    if (selectedBrandList == "") {
+    if (selectedBrandFromList == "") {
         brandToSend = otherBrand;
     }
 
-    const mailDetails = {
-        clientName: clientName,
-        clientNumber: clientNumber,
-        clientMail: clientMail,
-        clientMsg: clientMsg,
-        clientProblem: clientProblem,
-        clientBrand: brandToSend,
-    };
-    console.log(mailDetails);
-    // fetch("contact.php", {
-    //     method: "POST",
-    //     body: mailDetails,
-    // })
-    //     .then((res) => res.json())
-    //     .catch((error) => console.error("Error:", error))
-    //     .then((response) => console.log("Success:", response));
-    $.post("contact.php", mailDetails);
+    if (validateContactForm(clientName, clientNumber, clientMail, clientMsg)) {
+        this.disabled = true;
+        const mailDetails = {
+            clientName: clientName.value,
+            clientNumber: clientNumber.value,
+            clientMail: clientMail.value,
+            clientMsg: clientMsg,
+            clientProblem: clientProblem,
+            clientBrand: brandToSend,
+        };
+
+        console.log(mailDetails);
+
+        $.post("contact.php", mailDetails);
+    }
 }
 
 /*********** POPUP EXIT BTN **********/
@@ -285,5 +283,50 @@ function switchSelectOptions(brandId) {
             phoneModelSelect.innerHTML =
                 '<option value="1">alcatel 1</option><option value="2">alcatel 2</ption> <option value="3">alcatel 3</option><option value="4">alcatel 4</option><option value="5">alcatel 5</option>';
             break;
+    }
+}
+
+function validateContactForm(nameElement, numberElement, emailElement, msg) {
+    let isEmailEmpty = false;
+    let isNameEmpty = false;
+    let isNumberEmpty = false;
+
+    if (emailElement.value == "" || emailElement.value.trim() == "") {
+        emailElement.nextElementSibling.innerText =
+            "Por favor ingrese su correo electronico";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailElement.value)) {
+        emailElement.nextElementSibling.innerText =
+            "El correo que ingresó no es válido";
+    } else {
+        emailElement.nextElementSibling.innerText = "";
+        isEmailEmpty = true;
+    }
+
+    if (
+        nameElement.value.length > 25 ||
+        nameElement.value == "" ||
+        nameElement.value.trim() == ""
+    ) {
+        nameElement.nextElementSibling.innerText =
+            "Ingrese un nombre con menos de 25 caracteres";
+    } else {
+        nameElement.nextElementSibling.innerText = "";
+        isNameEmpty = true;
+    }
+
+    if (
+        numberElement.value == "" ||
+        numberElement.value.trim() == "" ||
+        !/^([+]58|0058|0)\d{10}$/.test(numberElement.value)
+    ) {
+        numberElement.nextElementSibling.innerText =
+            "Por favor ingrese un número de télefono valido";
+    } else {
+        numberElement.nextElementSibling.innerText = "";
+        isNumberEmpty = true;
+    }
+
+    if (isEmailEmpty && isNameEmpty && isNumberEmpty) {
+        return true;
     }
 }

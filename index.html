@@ -378,24 +378,34 @@
                     </div>
                     <div class="popup-inner-card">
                         <h3>Datos de Contacto</h3>
-                        <input
-                            type="text"
-                            name="nombre"
-                            id="client-name"
-                            placeholder="Nombre"
-                        />
-                        <input
-                            type="text"
-                            name="numero"
-                            id="client-number"
-                            placeholder="Número de teléfono"
-                        />
-                        <input
-                            type="email"
-                            name="correo"
-                            id="client-mail"
-                            placeholder="Correo"
-                        />
+                        <div class="input-wrap">
+                            <input
+                                type="text"
+                                name="nombre"
+                                id="client-name"
+                                placeholder="Nombre"
+                                maxlength="25"
+                            />
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-wrap">
+                            <input
+                                type="tel"
+                                name="numero"
+                                id="client-number"
+                                placeholder="Número de teléfono"
+                            />
+                            <div class="error"></div>
+                        </div>
+                        <div class="input-wrap">
+                            <input
+                                type="email"
+                                name="correo"
+                                id="client-mail"
+                                placeholder="Correo"
+                            />
+                            <div class="error"></div>
+                        </div>
                         <textarea
                             name="mensaje"
                             id="client-msg"
@@ -405,7 +415,7 @@
                         ></textarea>
                         <div class="btn-container">
                             <input
-                                type="submit"
+                                type="button"
                                 value="Enviar"
                                 id="send-mail-btn"
                             />
