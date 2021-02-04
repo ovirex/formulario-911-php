@@ -176,6 +176,7 @@ function sendMailToServer() {
     const clientNumber = document.getElementById("client-number");
     const clientMail = document.getElementById("client-mail");
     const clientMsg = document.getElementById("client-msg").value;
+    const formBtn = document.getElementById("send-mail-btn");
 
     const problemsList = document.getElementById("problems-list").children;
     let clientProblem = "";
@@ -214,8 +215,39 @@ function sendMailToServer() {
         };
 
         console.log(mailDetails);
-
-        $.post("contact.php", mailDetails);
+        grecaptcha.ready(function () {
+            grecaptcha
+                .execute("6LcNjUMaAAAAAApKVYXhd-4xA7ZLnlh4oi3T0DT3", {
+                    action: "homepage",
+                })
+                .then(function (token) {
+                    $.post("contact.php", {
+                        ...mailDetails,
+                        formBtn: formBtn.value,
+                        token: token,
+                    }).fail(function (response) {
+                        if (response.status == 403) {
+                            document.body.insertAdjacentHTML(
+                                "beforeend",
+                                "<p class='alert alert-warning'>Ha habído un problema con tu envio, por favor inténtelo de nuevo.</p>"
+                            );
+                        } else if (response.status == 400) {
+                            document.body.insertAdjacentHTML(
+                                "beforeend",
+                                '<p class="alert alert-warning">Por favor complete el formulario de contacto e intentelo de nuevo.</p>'
+                            );
+                        } else if (response.responseText == "suspicious") {
+                        } else if (response.status == 500) {
+                            document.body.insertAdjacentHTML(
+                                "beforeend",
+                                '<p class="alert alert-warning">Oops! Algo salió mal, no pudimos enviar tu mensaje.</p>'
+                            );
+                        }
+                        console.log(response);
+                        console.log("wakamole");
+                    });
+                });
+        });
     }
 }
 
