@@ -225,27 +225,34 @@ function sendMailToServer() {
                         ...mailDetails,
                         formBtn: formBtn.value,
                         token: token,
-                    }).fail(function (response) {
-                        if (response.status == 403) {
+                    })
+                        .done(function () {
                             document.body.insertAdjacentHTML(
                                 "beforeend",
-                                "<p class='alert alert-warning'>Ha habído un problema con tu envio, por favor inténtelo de nuevo.</p>"
+                                '<p class="alert alert-success">Gracias! Tu mensaje ha sido enviado.</p>'
                             );
-                        } else if (response.status == 400) {
-                            document.body.insertAdjacentHTML(
-                                "beforeend",
-                                '<p class="alert alert-warning">Por favor complete el formulario de contacto e intentelo de nuevo.</p>'
-                            );
-                        } else if (response.responseText == "suspicious") {
-                        } else if (response.status == 500) {
-                            document.body.insertAdjacentHTML(
-                                "beforeend",
-                                '<p class="alert alert-warning">Oops! Algo salió mal, no pudimos enviar tu mensaje.</p>'
-                            );
-                        }
-                        console.log(response);
-                        console.log("wakamole");
-                    });
+                        })
+                        .fail(function (response) {
+                            if (response.status == 403) {
+                                document.body.insertAdjacentHTML(
+                                    "beforeend",
+                                    "<p class='alert alert-warning'>Ha habído un problema con tu envio, por favor inténtelo de nuevo.</p>"
+                                );
+                            } else if (response.status == 400) {
+                                document.body.insertAdjacentHTML(
+                                    "beforeend",
+                                    '<p class="alert alert-warning">Por favor complete el formulario de contacto e intentelo de nuevo.</p>'
+                                );
+                            } else if (response.responseText == "suspicious") {
+                            } else if (response.status == 500) {
+                                document.body.insertAdjacentHTML(
+                                    "beforeend",
+                                    '<p class="alert alert-warning">Oops! Algo salió mal, no pudimos enviar tu mensaje.</p>'
+                                );
+                            }
+                            console.log(response);
+                            console.log("wakamole");
+                        });
                 });
         });
     }

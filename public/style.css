@@ -296,6 +296,44 @@ input[type="radio"] {
     position: absolute;
 }
 
+/****************   ALERTS  ************************/
+.alert {
+    position: fixed;
+    bottom: -100px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    animation-name: show-alert;
+    animation-duration: 6000ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
+.alert-warning {
+    background-color: rgb(224, 40, 42);
+}
+
+.alert-success {
+    background-color: #47ca4c;
+}
+
+@keyframes show-alert {
+    10% {
+        bottom: 0;
+    }
+    70% {
+        bottom: 0;
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        bottom: -100px;
+    }
+}
+
 /*TABLET*/
 
 @media screen and (max-width: 769px) {
@@ -331,6 +369,9 @@ input[type="radio"] {
 
     .popup-container {
         height: 645px;
+    }
+    .alert {
+        width: 269px;
     }
 }
 
