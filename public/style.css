@@ -334,6 +334,18 @@ input[type="radio"] {
     }
 }
 
+.modal-bg {
+    background-color: rgba(44, 44, 44, 0.5);
+    width: 110vw;
+    position: fixed;
+    height: 110vh;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
 /*TABLET*/
 
 @media screen and (max-width: 769px) {
