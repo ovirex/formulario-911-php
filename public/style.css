@@ -169,18 +169,6 @@ input[type="radio"] {
     background-repeat: no-repeat; */
 }
 
-.popup-container::before {
-    content: "";
-    width: 200vw;
-    height: 200vh;
-    background-color: rgba(1, 1, 1, 0.6);
-    z-index: -1;
-    top: 0;
-    left: 0;
-    transform: translate(-50%, -50%);
-    position: absolute;
-}
-
 .popup-inner-container {
     position: absolute;
     display: flex;
@@ -346,6 +334,10 @@ input[type="radio"] {
     display: none;
 }
 
+.grecaptcha-badge {
+    z-index: -1;
+}
+
 /*TABLET*/
 
 @media screen and (max-width: 769px) {
@@ -403,5 +395,21 @@ input[type="radio"] {
 @media screen and (max-width: 356px) {
     main {
         padding: 0 20px;
+    }
+}
+
+@media screen and (max-width: 321px) {
+    .popup-container {
+        height: 550px;
+    }
+    .popup-inner-card:first-child {
+        padding: 0;
+    }
+    .popup-inner-card:nth-child(2) {
+        margin-top: -33px;
+    }
+    .exit-popup-container {
+        right: 10%;
+        top: -2%;
     }
 }

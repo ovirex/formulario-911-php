@@ -263,11 +263,11 @@ function exitingPopup() {
     const popupForm = document.getElementById("mail-popup");
     if (this.children[0].checked) {
         this.children[0].checked = false;
-        popupForm.previousSibling.style.display = "none";
+        popupForm.previousElementSibling.style.display = "none";
         popupForm.style.display = "none";
     } else {
         this.children[0].checked = true;
-        popupForm.previousSibling.style.display = "block";
+        popupForm.previousElementSibling.style.display = "block";
         popupForm.style.display = "block";
     }
 }
