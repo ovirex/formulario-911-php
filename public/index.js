@@ -217,7 +217,7 @@ function sendMailToServer() {
         console.log(mailDetails);
         grecaptcha.ready(function () {
             grecaptcha
-                .execute("6LcNjUMaAAAAAApKVYXhd-4xA7ZLnlh4oi3T0DT3", {
+                .execute("6LdWSFgaAAAAAImTFxg3P8kOWqwtUNYrdEOr6DoA", {
                     action: "homepage",
                 })
                 .then(function (token) {
@@ -243,15 +243,21 @@ function sendMailToServer() {
                                     "beforeend",
                                     '<p class="alert alert-warning">Por favor complete el formulario de contacto e intentelo de nuevo.</p>'
                                 );
-                            } else if (response.responseText == "suspicious") {
+                            } else if (
+                                response.responseText == "suspicious" &&
+                                response.status == 500
+                            ) {
+                                document.body.insertAdjacentHTML(
+                                    "beforeend",
+                                    '<p class="alert alert-warning">Hemos detectado actividad sospechosa, por favor intentelo más tarde.</p>'
+                                );
+                                console.log("eres un bot");
                             } else if (response.status == 500) {
                                 document.body.insertAdjacentHTML(
                                     "beforeend",
                                     '<p class="alert alert-warning">Oops! Algo salió mal, no pudimos enviar tu mensaje.</p>'
                                 );
                             }
-                            console.log(response);
-                            console.log("wakamole");
                         });
                 });
         });

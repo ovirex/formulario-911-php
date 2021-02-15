@@ -2,12 +2,20 @@
 // error_reporting(E_ALL ^ E_NOTICE);
 error_reporting(E_ERROR | E_PARSE);
 
+require_once realpath(__DIR__ . "/vendor/autoload.php");
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
+
+
 /************************************************************************************************************* */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // access
-    $secretKey = '6LcNjUMaAAAAADaM5fRiSuvwsdlNGWzFOYOFnfnk';
+    $secretKey = getenv("GOOGLE_RECAPTCHA_API_KEY");
     // $captcha = $_POST['g-recaptcha-response'];
     $token = $_POST['token'];
 
@@ -40,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $responseKeys = json_decode($response,true);
 
     if(boolval($responseKeys["success"]) !== true && floatval($responseKeys["score"]) < 0.5) {
+        http_response_code(500);
         echo "suspicious";
         // echo '<p class="alert alert-warning">Please check the the captcha form.</p>';
     } else {
