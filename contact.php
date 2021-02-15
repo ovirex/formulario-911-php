@@ -9,13 +9,12 @@ use Dotenv\Dotenv;
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
-
 /************************************************************************************************************* */
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // access
-    $secretKey = getenv("GOOGLE_RECAPTCHA_API_KEY");
+    $secretKey = $_ENV["RECAPTCHA_API_KEY"];
     // $captcha = $_POST['g-recaptcha-response'];
     $token = $_POST['token'];
 
