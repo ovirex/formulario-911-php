@@ -257,6 +257,11 @@ function sendMailToServer() {
                                     "beforeend",
                                     '<p class="alert alert-warning">Oops! Algo salió mal, no pudimos enviar tu mensaje.</p>'
                                 );
+                            } else {
+                                document.body.insertAdjacentHTML(
+                                    "beforeend",
+                                    '<p class="alert alert-warning">Oops! Algo salió mal, por favor inténtelo más tarde.</p>'
+                                );
                             }
                         });
                 });
