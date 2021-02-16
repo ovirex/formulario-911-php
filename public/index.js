@@ -47,11 +47,10 @@ window.addEventListener("load", function () {
             alert("Ingrese la informacion necesaria por favor");
             return;
         }
-
+        addLoadingElement(true);
         /***************SOLICITUD DE JSON CON LOS PRECIOS**************/
         fetch("https://911smartphones.com/JSON/prices.json")
             .then((response) => {
-                console.log(response);
                 return response.json();
             })
             .then((data) => {
@@ -92,7 +91,6 @@ window.addEventListener("load", function () {
                         .marginBottom;
                     const bottomPosition =
                         mainHeight + parseInt(mainBottomMargin);
-                    console.log(mainHeight, mainBottomMargin);
 
                     window.scrollTo({
                         top: bottomPosition,
@@ -108,6 +106,7 @@ window.addEventListener("load", function () {
                     const openPopup = exitingPopup.bind(popupExitBtn);
                     openPopup();
                 }
+                addLoadingElement(false);
             })
             .catch((error) => console.log(error));
     });
@@ -214,6 +213,8 @@ function sendMailToServer() {
             clientBrand: brandToSend,
         };
 
+        addLoadingElement(true);
+
         console.log(mailDetails);
         grecaptcha.ready(function () {
             grecaptcha
@@ -231,6 +232,7 @@ function sendMailToServer() {
                                 "beforeend",
                                 '<p class="alert alert-success">Gracias! Tu mensaje ha sido enviado.</p>'
                             );
+                            addLoadingElement(false);
                         })
                         .fail(function (response) {
                             if (response.status == 403) {
@@ -263,6 +265,7 @@ function sendMailToServer() {
                                     '<p class="alert alert-warning">Oops! Algo salió mal, por favor inténtelo más tarde.</p>'
                                 );
                             }
+                            addLoadingElement(false);
                         });
                 });
         });
@@ -380,5 +383,22 @@ function validateContactForm(nameElement, numberElement, emailElement, msg) {
 
     if (isEmailEmpty && isNameEmpty && isNumberEmpty) {
         return true;
+    }
+}
+
+function addLoadingElement(isAdding) {
+    if (isAdding) {
+        const elem = `<div id="data-loading" class="loading-box">
+                        <div class="loading-bg"></div>
+                        <div class="loadingio-spinner-rolling-myugzulb93j">
+                            <div class="ldio-r663jsyr3rh">
+                                <div></div>
+                            </div>
+                        </div>
+                    </div>`;
+        document.body.insertAdjacentHTML("beforeend", elem);
+    } else {
+        const loadingElement = document.getElementById("data-loading");
+        loadingElement.remove();
     }
 }
